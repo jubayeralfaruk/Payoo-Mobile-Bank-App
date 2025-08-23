@@ -1,0 +1,1 @@
+// bank-account | amount | user-pin-number | add-money-btn
