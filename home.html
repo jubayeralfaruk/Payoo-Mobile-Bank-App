@@ -11,13 +11,13 @@
     <!-- FontAwesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-gray-100 pb-16">
+<body class="bg-gray-100 pb-[400px]">
     <div class="bg-white pb-7 rounded-b-3xl">
-        <div class="max-w-lg px-6 py-4 border-b border-gray-300 flex items-center justify-between m-auto mb-6">
-            <div class="flex items-center">
+        <div class="max-w-lg px-6 py-4 border-b border-gray-300 flex items-center justify-between m-auto mb-6 fixed top-0 left-0 right-0 overflow-hidden bg-white">
+            <div class="flex items-center ">
                 <img src="./assets/Group.png" alt="">
                 <div>
-                    <h1 class="font-bold text-xl">$<span>45000</span></h1>
+                    <h1 class="font-bold text-xl">$<span id="current-amount">45000</span></h1>
                     <p class="text-gray-500">
                         Available Balance
                     </p>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <!--  -->
-        <div class="px-6 mb-6 max-w-lg m-auto">
+        <div class="px-6 mb-6 max-w-lg m-auto mt-[130px]">
             <h1 class="font-bold text-3xl ">
                 Welcome to Payooo!
             </h1>
@@ -44,7 +44,7 @@
         <div class="grid grid-cols-3 px-6 gap-4 max-w-lg m-auto">
 
             <!-- service 1 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="add-money" class="border border-gray-300 py-4 px-2 rounded-lg">
                 <img class="m-auto" src="./assets/wallet1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Add Money
@@ -52,7 +52,7 @@
             </div>
 
             <!-- service 2 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="cashout" class="border border-gray-300 py-4 px-2 rounded-lg">
                 <img class="m-auto" src="./assets/send1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Cashout
@@ -94,7 +94,7 @@
     </div>
 
     <!-- Add Money -->
-    <div class="mt-10 max-w-lg m-auto">
+    <div id="addMoneyForm" class="mt-10 max-w-lg m-auto">
         <h1 class="px-6 font-bold text-xl mb-4">
             Add Money
         </h1>
@@ -103,7 +103,7 @@
                 <!-- select bank -->
                 <div class="mb-5">
                     <label class="font-bold" for="number">Select A Bank</label>
-                    <select class="select w-full rounded-3xl bg-gray-100 text-gray-500 mt-3 border-none text-[16px] px-6 pt-2 pb-2.5">
+                    <select id="bank-name" class="select w-full rounded-3xl bg-gray-100 text-gray-500 mt-3 border-none text-[16px] px-6 pt-2 pb-2.5" required>
                         <option disabled selected class="">Select bank</option>
                         <option>IBBL Bank</option>
                         <option>CT Bank</option>
@@ -117,26 +117,75 @@
                 <div class="">
                     <label class="font-bold" for="number">Bank Account Number</label>
                     <br>
-                    <input id="bank-account" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit account number">
+                    <input id="bank-account" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit account number" required>
                 </div>
                 <!-- Amount Add -->
                 <div class="mt-5">
                     <label class="font-bold" for="number">Amount to Add</label>
                     <br>
-                    <input id="amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Add Amount to withdraw">
+                    <input id="amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Add Amount to withdraw" required>
                 </div>
                 <!-- Pin -->
                 <div class="mt-5">
                     <label class="font-bold" for="number">Pin Number</label>
                     <br>
-                    <input id="user-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number">
+                    <input id="user-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
                 </div>
 
+                <!-- Btn -->
                 <button id="add-money-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
                     Add Money
                 </button>
             </form>
         </div>
     </div>
+
+    <!-- Cash Out -->
+    <div id="cashOutForm" class=" mt-10 max-w-lg m-auto hidden">
+        <h1 class="px-6 font-bold text-xl mb-4">
+            Cash Out
+        </h1>
+        <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
+            <form>
+                <!-- select bank -->
+                <div class="mb-5">
+                    <label class="font-bold" for="number">Select A Bank</label>
+                    <select id="bank-name" class="select w-full rounded-3xl bg-gray-100 text-gray-500 mt-3 border-none text-[16px] px-6 pt-2 pb-2.5" required>
+                        <option disabled selected class="">Select bank</option>
+                        <option>IBBL Bank</option>
+                        <option>CT Bank</option>
+                        <option>Sonali Bank</option>
+                        <option>Magura Bank</option>
+                        <option>No Bank</option>
+                    </select>
+                </div>
+
+                <!-- Bank Account Number -->
+                <div class="">
+                    <label class="font-bold" for="number">Bank Account Number</label>
+                    <br>
+                    <input id="bank-account" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit account number" required>
+                </div>
+                <!-- Amount Add -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Amount to Add</label>
+                    <br>
+                    <input id="amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Add Amount to withdraw" required>
+                </div>
+                <!-- Pin -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Pin Number</label>
+                    <br>
+                    <input id="user-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
+                </div>
+
+                <!-- Btn -->
+                <button id="add-money-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
+                    Add Money
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="./home.js"></script>
 </body>
 </html>
