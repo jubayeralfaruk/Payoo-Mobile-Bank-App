@@ -129,7 +129,7 @@
                 <div class="mt-5">
                     <label class="font-bold" for="number">Pin Number</label>
                     <br>
-                    <input id="user-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
+                    <input id="add-money-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
                 </div>
 
                 <!-- Btn -->
@@ -147,41 +147,29 @@
         </h1>
         <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
             <form>
-                <!-- select bank -->
-                <div class="mb-5">
-                    <label class="font-bold" for="number">Select A Bank</label>
-                    <select id="bank-name" class="select w-full rounded-3xl bg-gray-100 text-gray-500 mt-3 border-none text-[16px] px-6 pt-2 pb-2.5" required>
-                        <option disabled selected class="">Select bank</option>
-                        <option>IBBL Bank</option>
-                        <option>CT Bank</option>
-                        <option>Sonali Bank</option>
-                        <option>Magura Bank</option>
-                        <option>No Bank</option>
-                    </select>
-                </div>
-
-                <!-- Bank Account Number -->
+                
+                <!-- Agent Number -->
                 <div class="">
-                    <label class="font-bold" for="number">Bank Account Number</label>
+                    <label class="font-bold" for="number">Agent Number</label>
                     <br>
-                    <input id="bank-account" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit account number" required>
+                    <input id="agent-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit number" required>
                 </div>
-                <!-- Amount Add -->
+                <!-- Amount -->
                 <div class="mt-5">
-                    <label class="font-bold" for="number">Amount to Add</label>
+                    <label class="font-bold" for="number">Amount</label>
                     <br>
-                    <input id="amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Add Amount to withdraw" required>
+                    <input id="withdraw-amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter amount to withdraw" required>
                 </div>
                 <!-- Pin -->
                 <div class="mt-5">
                     <label class="font-bold" for="number">Pin Number</label>
                     <br>
-                    <input id="user-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
+                    <input id="withdraw-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
                 </div>
 
                 <!-- Btn -->
-                <button id="add-money-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
-                    Add Money
+                <button id="withdraw-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
+                    Withdraw Money
                 </button>
             </form>
         </div>
