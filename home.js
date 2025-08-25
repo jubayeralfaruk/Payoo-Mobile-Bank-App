@@ -1,3 +1,10 @@
+document.getElementById("logoutBtn").addEventListener("click", function () {
+    window.location.href = "index.html"
+})
+
+
+
+
 
 // Value to Covert number function
 function getIdValueNumber(id) {
