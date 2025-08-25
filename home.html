@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paytoo Mobile</title>
+    <link rel="shortcut icon" href="./assets/Group.png" type="image/x-icon">
     <!-- Daisyui & Tailwind CDN -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -13,7 +14,7 @@
 </head>
 <body class="bg-gray-100 pb-[400px]">
     <div class="bg-white pb-7 rounded-b-3xl">
-        <div class="max-w-lg px-6 py-4 border-b border-gray-300 flex items-center justify-between m-auto mb-6 fixed top-0 left-0 right-0 overflow-hidden bg-white">
+        <div class="max-w-lg px-6 py-4 border-b border-gray-300 flex items-center justify-between m-auto mb-6 ">
             <div class="flex items-center ">
                 <img src="./assets/Group.png" alt="">
                 <div>
@@ -31,7 +32,7 @@
             </div>
         </div>
         <!--  -->
-        <div class="px-6 mb-6 max-w-lg m-auto mt-[130px]">
+        <div class="px-6 mb-6 max-w-lg m-auto mt-[30px]">
             <h1 class="font-bold text-3xl ">
                 Welcome to Payooo!
             </h1>
@@ -44,7 +45,7 @@
         <div class="grid grid-cols-3 px-6 gap-4 max-w-lg m-auto">
 
             <!-- service 1 -->
-            <div id="add-money" class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="add-money" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style ">
                 <img class="m-auto" src="./assets/wallet1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Add Money
@@ -52,7 +53,7 @@
             </div>
 
             <!-- service 2 -->
-            <div id="cashout" class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="cashout" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style">
                 <img class="m-auto" src="./assets/send1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Cashout
@@ -60,7 +61,7 @@
             </div>
 
             <!-- service 3 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="transfer-money" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style">
                 <img class="m-auto" src="./assets/money1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Transfer Money
@@ -68,7 +69,7 @@
             </div>
 
             <!-- service 4 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="get-bonus" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style">
                 <img class="m-auto" src="./assets/bonus1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Get Bonus
@@ -76,7 +77,7 @@
             </div>
 
             <!-- service 5 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="pay-bill" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style">
                 <img class="m-auto" src="./assets/purse1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Pay Bill
@@ -84,7 +85,7 @@
             </div>
 
             <!-- service 6 -->
-            <div class="border border-gray-300 py-4 px-2 rounded-lg">
+            <div id="transactions" class="border border-gray-300 py-4 px-2 rounded-lg toggle-btn-style">
                 <img class="m-auto" src="./assets/transaction1.png" alt="">
                 <h3 class="text-center text-gray-600 font-semibold mt-2 ">
                     Transactions
@@ -94,7 +95,7 @@
     </div>
 
     <!-- Add Money -->
-    <div id="addMoneyForm" class="mt-10 max-w-lg m-auto">
+    <div id="addMoneyForm" class="mt-10 max-w-lg m-auto toggle-btn">
         <h1 class="px-6 font-bold text-xl mb-4">
             Add Money
         </h1>
@@ -141,7 +142,7 @@
     </div>
 
     <!-- Cash Out -->
-    <div id="cashOutForm" class=" mt-10 max-w-lg m-auto hidden">
+    <div id="cashOutForm" class=" mt-10 max-w-lg m-auto hidden toggle-btn">
         <h1 class="px-6 font-bold text-xl mb-4">
             Cash Out
         </h1>
@@ -174,6 +175,123 @@
             </form>
         </div>
     </div>
+
+    <!-- Transfer Money -->
+    <div id="transferMoneyForm" class=" mt-10 max-w-lg m-auto hidden toggle-btn">
+        <h1 class="px-6 font-bold text-xl mb-4">
+            Transfer Money
+        </h1>
+        <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
+            <form>
+                
+                <!-- Agent Number -->
+                <div class="">
+                    <label class="font-bold" for="number">User Account Number</label>
+                    <br>
+                    <input id="send-now-user-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit number" required>
+                </div>
+                <!-- Amount -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Amount</label>
+                    <br>
+                    <input id="send-now-amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter amount to transfer" required>
+                </div>
+                <!-- Pin -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Pin Number</label>
+                    <br>
+                    <input id="send-now-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
+                </div>
+
+                <!-- Btn -->
+                <button id="send-now-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
+                    Send Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get Bonus -->
+    <div id="getBonusForm" class=" mt-10 max-w-lg m-auto hidden toggle-btn">
+        <h1 class="px-6 font-bold text-xl mb-4">
+            Get Bonus
+        </h1>
+        <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
+            <form>
+                
+                <div class="">
+                    <label class="font-bold" for="number">Enter Bonus Coupon</label>
+                    <br>
+                    <input id="coupon-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter your coupon" required>
+                </div>
+                
+
+                <!-- Btn -->
+                <button id="withdraw-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
+                    Get Bonus
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pay Bill -->
+    <div id="payBillForm" class="mt-10 max-w-lg m-auto hidden toggle-btn">
+        <h1 class="px-6 font-bold text-xl mb-4">
+            Pay Bill
+        </h1>
+        <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
+            <form>
+                <!-- select bank -->
+                <div class="mb-5">
+                    <label class="font-bold" for="number">Select To Pay</label>
+                    <select id="pay-now-bank-name" class="select w-full rounded-3xl bg-gray-100 text-gray-500 mt-3 border-none text-[16px] px-6 pt-2 pb-2.5" required>
+                        <option disabled selected class="">Select bank</option>
+                        <option>IBBL Bank</option>
+                        <option>CT Bank</option>
+                        <option>Sonali Bank</option>
+                        <option>Magura Bank</option>
+                        <option>No Bank</option>
+                    </select>
+                </div>
+
+                <!-- Bank Account Number -->
+                <div class="">
+                    <label class="font-bold" for="number">Biller Account Number</label>
+                    <br>
+                    <input id="pay-now-account" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Enter 11 digit account number" required>
+                </div>
+                <!-- Amount Add -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Amount to Pay</label>
+                    <br>
+                    <input id="pay-now-amount" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="number" name="number" id="number" placeholder="Add Amount to Pay" required>
+                </div>
+                <!-- Pin -->
+                <div class="mt-5">
+                    <label class="font-bold" for="number">Pin Number</label>
+                    <br>
+                    <input id="pay-now-pin-number" class=" input rounded-3xl border-none bg-gray-100 mt-3 w-full text-[16px] p-6"  type="password" name="number" id="number" placeholder="Enter 4 Digit pin number" required>
+                </div>
+
+                <!-- Btn -->
+                <button id="pay-now-btn" class="btn w-full rounded-3xl p-6 text-[18px] mt-6 bg-blue-500 text-white" >
+                    Pay Now
+                </button>
+            </form>
+        </div>
+    </div>
     <script src="./home.js"></script>
+
+    <!-- Transactions -->
+     <div id="transactionsForm" class="mt-10 max-w-lg m-auto hidden toggle-btn">
+        <h1 class="px-6 font-bold text-xl mb-4">
+            Transactions
+        </h1>
+        <div id="addTransactions" class="">
+            <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
+            
+            </div>
+        </div>
+    </div>
 </body>
 </html>
