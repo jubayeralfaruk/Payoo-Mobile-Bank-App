@@ -1,8 +1,13 @@
+
+
 document.getElementById("logoutBtn").addEventListener("click", function () {
     window.location.href = "index.html"
 })
 
 
+// Transactions data array
+const transactionData = [];
+console.log(transactionData);
 
 
 
@@ -51,7 +56,6 @@ document.getElementById("add-money-btn").addEventListener("click", function (e) 
     }
 
     const currentAmount = Number(document.getElementById("current-amount").innerText);
-    console.log(currentAmount);
     const newAccountAmount = currentAmount + inputAmount;
 
     document.getElementById("current-amount").innerText = newAccountAmount
@@ -59,12 +63,15 @@ document.getElementById("add-money-btn").addEventListener("click", function (e) 
     document.getElementById("add-money-pin-number").value = '';
     document.getElementById("amount").value = '';
 
-    const addTransactions = document.getElementById("addTransactions")
-    addTransactions.innerHTML = `
-    <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl">
-            <h1>hi</h1>
-    </div>
-    `    
+    const data = {
+        name: 'Add Money',
+        time: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
+        logo: './assets/wallet1.png',
+        transaction: inputAmount
+    }
+
+    transactionData.unshift(data);   
     
 })
 
@@ -98,6 +105,17 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 
     if (currentAmount > 0 && currentAmount >= withdrawAmount) {
         document.getElementById("current-amount").innerText = newBalance;
+
+
+        const data = {
+        name: 'Cash out',
+        time: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
+        logo: './assets/send1.png',
+        transaction: withdrawAmount
+        }
+
+        transactionData.unshift(data);
         return
     }
 
@@ -136,6 +154,17 @@ document.getElementById("send-now-btn").addEventListener("click", function (e) {
 
     if (currentAmount > 0 && currentAmount >= amount) {
         document.getElementById("current-amount").innerText = newBalance;
+
+        const data = {
+        name: 'Send Money',
+        time: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
+        logo: './assets/money1.png',
+        transaction: amount
+        }
+
+        transactionData.unshift(data);
+
         return;
     }
     alert("Insufficient Balance");
@@ -172,6 +201,17 @@ document.getElementById("pay-now-btn").addEventListener("click", function (e) {
 
     if (currentAmount > 0 && currentAmount >= inputAmount) {
         document.getElementById("current-amount").innerText = newAccountAmount;
+
+        const data = {
+        name: 'Pay Bill',
+        time: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
+        logo: './assets/bonus1.png',
+        transaction: inputAmount
+        }
+
+        transactionData.unshift(data);
+
         return;
     }
     alert("Insufficient Balance");    
@@ -181,7 +221,32 @@ document.getElementById("pay-now-btn").addEventListener("click", function (e) {
 
 
 
-
+document.getElementById('transactions').addEventListener("click", function () {
+    
+    const addTransactions = document.getElementById("addTransactions");
+    addTransactions.innerHTML = ""
+    for(const item of transactionData){
+        const div = document.createElement('div')
+        div.innerHTML = `
+            <div class=" bg-white mx-6 px-7 py-6 m-auto rounded-3xl flex justify-between items-center mb-5">
+                <div class="">
+                    <div class="flex gap-3">  
+                        <img src="${item.logo}" alt="">
+                        <h3 class="font-bold">${item.name}</h3>
+                    </div>
+                    <div class="">
+                        <p>${item.time} | ${item.date}</p>
+                    </div>
+                </div>
+                <div class="flex  items-center">
+                    <h3 class="font-bold mx-3">${item.transaction} tk</h3>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+        `
+        addTransactions.appendChild(div)
+    }
+})
 
 
 
